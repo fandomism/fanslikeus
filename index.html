@@ -41,8 +41,8 @@
 
       html,
       body {
-        height: 100%;
         margin: 0;
+        height: 100%;
       }
 
       body {
@@ -53,19 +53,22 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-rendering: optimizeLegibility;
+
         overflow: hidden;
       }
 
       .shell {
-        min-height: 100vh;
+        height: 100svh;
+        height: 100dvh;
         display: flex;
         flex-direction: column;
       }
 
       header {
-        padding: clamp(18px, 3vh, 32px) 24px 0;
+        padding: clamp(14px, 2.5vh, 28px) 18px 0;
         display: flex;
         justify-content: center;
+        flex: 0 0 auto;
       }
 
       header a {
@@ -73,7 +76,7 @@
       }
 
       .logo {
-        width: clamp(220px, 55vw, 680px);
+        width: clamp(210px, 70vw, 680px);
         height: auto;
         display: block;
         max-width: 100%;
@@ -82,11 +85,12 @@
       }
 
       main {
-        flex: 1;
+        flex: 1 1 auto;
+        min-height: 0;
         display: grid;
         place-items: center;
         text-align: center;
-        padding: 24px;
+        padding: 16px;
       }
 
       .title {
@@ -97,14 +101,46 @@
       }
 
       footer {
-        padding: 0 18px clamp(18px, 3vh, 32px);
+        flex: 0 0 auto;
         text-align: center;
         color: var(--muted);
+        padding: 0 16px clamp(14px, 2.5vh, 24px);
+      }
+
+      .social {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 10px;
+      }
+
+      .social a {
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        color: #ffffff;
+        text-decoration: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+
+      .social a:hover {
+        opacity: 0.8;
+        transform: translateY(-1px);
+      }
+
+      .social svg {
+        width: 22px;
+        height: 22px;
+        display: block;
       }
 
       .signup {
         display: inline-block;
-        margin-bottom: 10px;
+        margin: 0 0 8px;
         color: rgba(255, 255, 255, 0.65);
         text-decoration: underline;
         text-underline-offset: 2px;
@@ -116,67 +152,45 @@
         color: #fff;
       }
 
-      .social {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 10px;
-      }
-
-      .social a {
-        width: 36px;
-        height: 36px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 999px;
-        color: #ffffff;
-        transition: opacity 0.2s ease, transform 0.2s ease;
-        text-decoration: none;
-      }
-
-      .social a:hover {
-        opacity: 0.8;
-        transform: translateY(-1px);
-      }
-
-      .social svg {
-        width: 20px;
-        height: 20px;
-        display: block;
-      }
-
       .copyright {
         font-size: clamp(8px, 0.5vw + 6px, 10px);
         line-height: 1.2;
       }
 
-      @media (max-height: 520px) {
+      @media (max-height: 560px) {
         header {
-          padding-top: 12px;
+          padding-top: 10px;
         }
 
         .logo {
-          width: clamp(180px, 45vw, 520px);
+          width: clamp(180px, 62vw, 520px);
         }
 
         main {
-          padding: 16px;
+          padding: 10px;
         }
 
-        footer {
-          padding-bottom: 12px;
+        .social {
+          gap: 6px;
+          margin-bottom: 8px;
         }
 
         .social a {
-          width: 32px;
-          height: 32px;
+          width: 34px;
+          height: 34px;
         }
 
         .social svg {
           width: 18px;
           height: 18px;
+        }
+
+        .signup {
+          margin-bottom: 6px;
+        }
+
+        footer {
+          padding-bottom: 12px;
         }
       }
     </style>
@@ -199,14 +213,6 @@
       </main>
 
       <footer>
-        <a
-          href="https://forms.gle/7SsRz6qiBpYxTiVo7"
-          class="signup"
-          aria-label="Sign up for updates about Fans Like Us"
-        >
-          Sign up for updates
-        </a>
-
         <div class="social" aria-label="Social links">
           <a
             href="https://www.instagram.com/fanslike.us"
@@ -260,6 +266,14 @@
             </svg>
           </a>
         </div>
+
+        <a
+          href="https://forms.gle/7SsRz6qiBpYxTiVo7"
+          class="signup"
+          aria-label="Sign up for updates about Fans Like Us"
+        >
+          Sign up for updates
+        </a>
 
         <div class="copyright">© 2026 Fandomism LLC. All rights reserved.</div>
       </footer>
